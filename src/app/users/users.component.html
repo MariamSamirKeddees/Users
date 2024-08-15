@@ -1,0 +1,29 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (user of users; track $index) {
+    <div class="col">
+      <div class="card">
+        <div class="text-center">
+          <img
+            src="{{ user.image }}"
+            class="card-img-top rounded-circle border w-25 text-center"
+            alt="..."
+          />
+          <div class="card-body">
+            @if (user.role === 'admin') {
+            <span class="bg-danger">{{ user.role }}</span>
+            } @else if (user.role === 'user') {
+            <span class="bg-success">{{ user.role }}</span>
+            } @else if (user.role === 'moderator') {
+            <span class="bg-warning">{{ user.role }}</span>
+            }
+            <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+            <h5 class="card-title">{{ user.email }}</h5>
+            <h5 class="card-title">{{ user.phone }}</h5>
+            <h5 class="card-title">{{ user.birthDate | date : "mediumDate" }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  
